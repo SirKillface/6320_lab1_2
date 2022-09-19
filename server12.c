@@ -1,3 +1,5 @@
+//Paul Dalton pld0016@auburn.edu
+//Ginny Genge vgg0003@auburn.edu
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
