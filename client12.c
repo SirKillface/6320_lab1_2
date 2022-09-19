@@ -8,7 +8,6 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-
 #define PORT 10020
 #define MAXLINE 4096
 
@@ -62,14 +61,7 @@ int main(int argc, char **argv){
         printf("%s\n", "is not a valid request");
     }
 
-
     close(sockfd);
-
-
-
-
-
-
 
     return 0;
 }

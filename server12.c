@@ -100,7 +100,7 @@ int main(int argc, char *argv){
             }
         }
 
-        else {
+        if (flag == 1){
             result = 0;
             valid = 2;
         }
@@ -113,6 +113,7 @@ int main(int argc, char *argv){
         send(newSockfd, &result, sizeof(int), 0);
         send(newSockfd, &valid, sizeof(int), 0);
         //send(newSockfd, &result, sizeof(int), 0);
+        flag = 0;
     }
     close(newSockfd);
     close(sockfd);
