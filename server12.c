@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <stdint.h>
 
 #define PORT 10020
 #define MAXLINE 4096
@@ -73,8 +74,10 @@ int main(int argc, char *argv){
 
 
 
-        if((a == 0) || (b ==0) && (c == '/')){
-            flag = 1;
+        if((a == 0) || (b ==0)){
+            if(c == '/'){
+                flag = 1;
+            }
         }
 
         else if((b > a) && c == '-'){
@@ -107,12 +110,11 @@ int main(int argc, char *argv){
 
         printf("%d%s%c%s%d%s%d\n", a, " ", c, " ", b, " = ", result);
 
-        send(newSockfd, &c, sizeof(int), 0);
-        send(newSockfd, &a, sizeof(int), 0);
-        send(newSockfd, &b, sizeof(int), 0);
-        send(newSockfd, &result, sizeof(int), 0);
-        send(newSockfd, &valid, sizeof(int), 0);
-        //send(newSockfd, &result, sizeof(int), 0);
+        send(newSockfd, &c, sizeof(uint32_t), 0);
+        send(newSockfd, &a, sizeof(uint32_t), 0);
+        send(newSockfd, &b, sizeof(uint32_t), 0);
+        send(newSockfd, &result, sizeof(uint32_t), 0);
+        send(newSockfd, &valid, 1, 0);
         flag = 0;
     }
     close(newSockfd);

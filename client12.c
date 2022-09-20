@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <stdint.h>
 
 #define PORT 10020
 #define MAXLINE 4096
@@ -43,8 +44,8 @@ int main(int argc, char **argv){
 
     bzero(sendLine, MAXLINE);
 
-    send(sockfd, argv[1], sizeof(int), 0);
-    send(sockfd, argv[2], sizeof(int), 0);
+    send(sockfd, argv[1], sizeof(uint32_t), 0);
+    send(sockfd, argv[2], sizeof(uint32_t), 0);
     send(sockfd, argv[3], sizeof(char), 0);
 
 
